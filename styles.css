@@ -1,0 +1,362 @@
+/* General Styling */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --tenne-tawny: #d65108;
+    --tenne-tawny-dark: #b54507;
+    --tenne-tawny-dark-active: #f77026;
+}
+
+.flex {
+    display: flex;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+    line-height: 1.75;
+    min-height: 100vh;
+}
+
+.btn {
+    font-family: inherit;
+    cursor: pointer;
+    outline: 0;
+    font-size: 1.1rem;
+}
+
+.title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    color: rgba(0, 0, 0, 0.75);
+}
+
+/* Styling the main content */
+.container {
+    min-height: 100vh;
+}
+
+.meal-wrapper {
+    /* Sceptical */
+    /* max-width: 1280px; */
+    /* border: 1px solid black; */
+    background-color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.introduction {
+    margin: 2rem 0 0.5rem;
+}
+
+.introduction cite {
+    font-size: 1rem;
+}
+
+.meal-search {
+    margin: 1.5rem;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.search-text,
+.btn-search {
+    width: min(100%, 30rem);
+}
+
+.search-text {
+    padding: 0 1rem;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+    font-size: 1.1rem;
+    font-family: inherit;
+    border: 1.5px solid rgba(0, 0, 0, 0.4);
+    color: rgb(0, 0, 0, 0.7);
+    outline: 0;
+}
+
+.search-text:focus {
+    /* border: 3px solid rgb(0, 0, 0, 0.2); */
+    border: 2px solid var(--tenne-tawny);
+    color: black;
+}
+
+.search-text:focus::placeholder {
+    color: black;
+}
+
+.btn-search {
+    width: 4rem;
+    height: 3rem;
+    font-size: 1.3rem;
+    background-color: var(--tenne-tawny);
+    color: white;
+    border: none;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+
+    transition: background-color 0.15s linear;
+}
+
+.btn-search:hover {
+    background-color: var(--tenne-tawny-dark);
+}
+
+.btn-search:active {
+    background-color: var(--tenne-tawny-dark-active);
+    transition: 0.05s linear;
+}
+
+/* Styling Meal Results */
+
+.meal-results {
+    margin-top: 3rem;
+    display: grid;
+    place-items: center;
+}
+
+.grid-container {
+    display: grid;
+    place-items: center;
+    width: min(75rem, 90%);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+    /* overflow-x: ; */
+    /* border: 1px solid black; */
+}
+
+.meal {
+    margin: 2rem 0;
+}
+
+.meal-item {
+    border-radius: 1rem;
+    width: 21rem;
+    height: 28rem;
+    overflow: hidden;
+    box-shadow: 0 0 1.5rem -0.25rem rgba(0, 0, 0, 0.4);
+}
+
+.meal-img img {
+    display: block;
+    width: 100%;
+    height: 20rem;
+}
+
+.meal-name {
+    padding: 0 0.2rem;
+    margin: 0.9rem auto;
+    font-size: 1.2rem;
+}
+
+.meal-recipe {
+    margin: 1.1rem auto;
+}
+
+.btn-recipe {
+    text-decoration: none;
+    padding: 0.5em 2em;
+    border-radius: 1.2rem;
+    color: white;
+    background-color: var(--tenne-tawny);
+    font-size: 1rem;
+    font-weight: 500;
+
+    transition: background-color 0.15s linear, color 0.1s linear;
+}
+
+.btn-recipe:hover {
+    background-color: var(--tenne-tawny-dark);
+}
+
+.btn-recipe:active {
+    background-color: var(--tenne-tawny-dark-active);
+    transition: 0.05s linear;
+}
+
+/* Styling Modal */
+
+.modal {
+    padding: 1rem;
+    margin: auto;
+    width: 55%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border: 0;
+    border-radius: 0.75em;
+    box-shadow: 0 0 1em 0.3em rgb(0 0 0 / .3);
+
+    background-color: var(--tenne-tawny);
+}
+
+.modal::backdrop {
+    background: rgb(0 0 0 / 0.4);
+}
+
+.recipe-title-close-btn-container {
+    align-items: center;
+    justify-items: center;
+}
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: 93% 7%;
+}
+
+.grid-item {
+    overflow-y: auto;
+}
+
+.btn-close-modal {
+    grid-row: 1/1;
+    grid-column: 2/3;
+
+    padding: 0.5rem 0.5rem;
+    border: none;
+    border-radius: 50%;
+    -webkit-text-stroke: 0.2rem black;
+
+    /* position: relative;
+    left: 1.2rem;
+    bottom: 0.9rem; */
+}
+
+.btn-close-modal:active {
+    background-color: rgba(255, 255, 255);
+}
+
+.modal-recipe-title {
+    grid-row: 1/1;
+    grid-column: 1 / span 2;
+
+    color: white;
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08rem;
+}
+
+.modal-recipe-category {
+    width: fit-content;
+    padding: 0.05em 0.5em;
+    margin: 0.2rem auto;
+    background-color: white;
+    color: var(--tenne-tawny);
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 0.25em;
+}
+
+.modal-recipe-instructions {
+    text-align: justify;
+    margin: 1rem 0;
+}
+
+.modal-recipe-instructions h3 {
+    font-size: 1.4rem;
+    color: white;
+    letter-spacing: 0.05rem;
+    text-decoration: underline;
+    text-underline-offset: 0.1em;
+}
+
+.modal-recipe-instructions p {
+    color: white;
+    font-size: 1.05rem;
+    font-weight: 200;
+    line-height: 1.75rem;
+    margin: 0.3em 0 2em;
+}
+
+.modal-recipe-img img {
+    display: block;
+    margin: auto;
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+.modal-recipe-link {
+    display: block;
+    text-align: center;
+    margin: 1em 0 0.35em;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Media Queries */
+@media (min-width: 320px) and (max-width: 480px) {}
+
+/* @media(min-width: 850px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .meal-item {
+        width: 24rem;
+        height: 32rem;
+    }
+
+    .meal-img img {
+        height: 23rem;
+    }
+
+    .meal-name {
+        margin: 1.1rem auto;
+        font-size: 1.3rem;
+    }
+
+    .meal-recipe {
+        margin: 1.3rem auto;
+    }
+
+    .btn-recipe {
+        font-size: 1.05rem;
+    }
+} */
+
+/* @media(min-width: 1150px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .meal-item {
+        width: 21rem;
+        height: 28rem;
+    }
+
+    .meal-img img {
+        height: 20rem;
+    }
+
+    .meal-name {
+        margin: 0.9rem auto;
+        font-size: 1.2rem;
+    }
+
+    .meal-recipe {
+        margin: 1.1rem auto;
+    }
+
+    .btn-recipe {
+        font-size: 1rem;
+    }
+} */
+
+
+/* JS CLASSES */
+
+.hide {
+    display: none;
+}
